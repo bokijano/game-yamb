@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import PlayerOne from "./components/player One/PlayerOne.js";
+import PlayerTwo from "./components/player Two/PlayerTwo.js";
+import Dices from "./components/dices/Dices";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="player-one">
+          <PlayerOne />
+        </div>
+        <div className="display-dices">
+          <Dices />
+        </div>
+        <div className="player-two">
+          <PlayerTwo />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .player-one,
+  .display-dices,
+  .player-two {
+    width: 30%;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    .player-one,
+    .display-dices,
+    .player-two {
+      width: 100%;
+    }
+  }
+}
+
+.dices {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  cursor: pointer;
+  img {
+    width: 30%;
+    margin-top: 20px;
+  }
+}
+button {
+  width: 30%;
+  cursor: pointer;
+}
