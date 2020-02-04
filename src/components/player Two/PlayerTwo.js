@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import RowNames from "./../yamb-table/RowNames.js";
 
 export default class PlayerTwo extends Component {
     render() {
         return (
             <div>
-                <p>This is player Two component</p>
+                <RowNames />
             </div>
         )
     }

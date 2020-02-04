@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ButtonContainer from "./../Button.js"
 
 import { ProductConsumer } from "./../../Context";
 
@@ -14,14 +15,14 @@ export default class Dices extends Component {
                   style={
                     value.stay1
                       ? {
-                          border: "1px solid #333",
-                          borderRadius: "5px",
+                          border: "2px solid #333",
+                          borderRadius: "10px",
                           boxShadow: "4px 4px 6px grey"
                         }
                       : null
                   }
                   onClick={() => value.stayInGame(1, value.diceNum1)}
-                  onDoubleClick={() => value.gameAgain(1)}
+                  onDoubleClick={() => value.gameAgain(1, value.stayNum1)}
                   src={
                     value.stay1
                       ? value.dices[value.stayNum1 - 1]
@@ -33,14 +34,14 @@ export default class Dices extends Component {
                   style={
                     value.stay2
                       ? {
-                          border: "1px solid #333",
-                          borderRadius: "5px",
+                          border: "2px solid #333",
+                          borderRadius: "10px",
                           boxShadow: "4px 4px 6px grey"
                         }
                       : null
                   }
                   onClick={() => value.stayInGame(2, value.diceNum2)}
-                  onDoubleClick={() => value.gameAgain(2)}
+                  onDoubleClick={() => value.gameAgain(2, value.stayNum2)}
                   src={
                     value.stay2
                       ? value.dices[value.stayNum2 - 1]
@@ -53,14 +54,14 @@ export default class Dices extends Component {
                   style={
                     value.stay3
                       ? {
-                          border: "1px solid #333",
-                          borderRadius: "5px",
+                          border: "2px solid #333",
+                          borderRadius: "10px",
                           boxShadow: "4px 4px 6px grey"
                         }
                       : null
                   }
                   onClick={() => value.stayInGame(3, value.diceNum3)}
-                  onDoubleClick={() => value.gameAgain(3)}
+                  onDoubleClick={() => value.gameAgain(3, value.stayNum3)}
                   src={
                     value.stay3
                       ? value.dices[value.stayNum3 - 1]
@@ -72,14 +73,14 @@ export default class Dices extends Component {
                   style={
                     value.stay4
                       ? {
-                          border: "1px solid #333",
-                          borderRadius: "5px",
+                          border: "2px solid #333",
+                          borderRadius: "10px",
                           boxShadow: "4px 4px 6px grey"
                         }
                       : null
                   }
                   onClick={() => value.stayInGame(4, value.diceNum4)}
-                  onDoubleClick={() => value.gameAgain(4)}
+                  onDoubleClick={() => value.gameAgain(4, value.stayNum4)}
                   src={
                     value.stay4
                       ? value.dices[value.stayNum4 - 1]
@@ -91,14 +92,14 @@ export default class Dices extends Component {
                   style={
                     value.stay5
                       ? {
-                          border: "1px solid #333",
-                          borderRadius: "5px",
+                          border: "2px solid #333",
+                          borderRadius: "10px",
                           boxShadow: "4px 4px 6px grey"
                         }
                       : null
                   }
                   onClick={() => value.stayInGame(5, value.diceNum5)}
-                  onDoubleClick={() => value.gameAgain(5)}
+                  onDoubleClick={() => value.gameAgain(5, value.stayNum5)}
                   src={
                     value.stay5
                       ? value.dices[value.stayNum5 - 1]
@@ -110,14 +111,14 @@ export default class Dices extends Component {
                   style={
                     value.stay6
                       ? {
-                          border: "1px solid #333",
-                          borderRadius: "5px",
+                          border: "2px solid #333",
+                          borderRadius: "10px",
                           boxShadow: "4px 4px 6px grey"
                         }
                       : null
                   }
                   onClick={() => value.stayInGame(6, value.diceNum6)}
-                  onDoubleClick={() => value.gameAgain(6)}
+                  onDoubleClick={() => value.gameAgain(6, value.stayNum6)}
                   src={
                     value.stay6
                       ? value.dices[value.stayNum6 - 1]
@@ -128,24 +129,29 @@ export default class Dices extends Component {
               </div>
             ) : null}
 
-            <button
-              onClick={() => value.changeDice(true, false, false)}
+            <ButtonContainer
+              onClick={value.changeDice}
               disabled={value.displayDices}
             >
-              Roll first
-            </button>
-            <button
-              onClick={() => value.changeDice(true, true, false)}
+              first roll
+            </ButtonContainer>
+            <ButtonContainer
+              onClick={() => value.secondRoll(true, false)}
               disabled={value.displayDices2}
             >
-              Roll second
-            </button>
-            <button
-              onClick={() => value.changeDice(true, true, true)}
+              second roll
+            </ButtonContainer>
+            <ButtonContainer
+              onClick={() => value.secondRoll(true, true)}
               disabled={value.displayDices3}
             >
               Final roll
-            </button>
+            </ButtonContainer>
+
+            <ButtonContainer onClick={value.newRoll}>
+              Roll again
+            </ButtonContainer>
+
             <p>
               1: <span>{value.sumOne}</span>
             </p>
