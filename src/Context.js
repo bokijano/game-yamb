@@ -25,7 +25,7 @@ export default class ProductProvider extends Component {
     stayNum6: "",
     displayDices: false,
     displayDices2: false,
-    displayDices3: false,
+    displayDices3: true,
     stay1: false,
     stay2: false,
     stay3: false,
@@ -39,7 +39,19 @@ export default class ProductProvider extends Component {
     sumFive: 0,
     sumSix: 0,
     result: [],
-    result1: []
+    result1: [],
+    disableInp1Down: false, disableInp1Free: false, disableInp1Up: false, disableInp1Hand: false,
+    oneDown: "", oneFree: "", oneHand: "", oneUp: "",
+    disableInp2Down: true, disableInp2Free: false, disableInp2Up: false, disableInp2Hand: false,
+    twoDown: "", twoFree: "", twoHand: "", twoUp: "",
+    disableInp3Down: true, disableInp3Free: false, disableInp3Up: false, disableInp3Hand: false,
+    threeDown: "", threeFree: "", threeHand: "", threeUp: "",
+    disableInp4Down: true, disableInp4Free: false, disableInp4Up: false, disableInp4Hand: false,
+    fourDown: "", fourFree: "", fourHand: "", fourUp: "",
+    disableInp5Down: true, disableInp5Free: false, disableInp5Up: false, disableInp5Hand: false,
+    fiveDown: "", fiveFree: "", fiveHand: "", fiveUp: "",
+    disableInp6Down: true, disableInp6Free: false, disableInp6Up: false, disableInp6Hand: false,
+    sixDown: "", sixFree: "", sixHand: "", sixUp: ""        
   };
 
   changeDice = () => {
@@ -55,7 +67,6 @@ export default class ProductProvider extends Component {
     for (let i = 0; i < result.length; i++) {
       this.sumDices(result[i]);
     }
-    console.log(result);
 
     this.setState({
       diceNum1: diceNum1,
@@ -145,17 +156,29 @@ export default class ProductProvider extends Component {
   sumDices = number => {
     switch (number) {
       case 1:
-        return (this.state.sumOne = this.state.sumOne + 1);
+        if(this.state.sumOne <= 5) {
+          return (this.state.sumOne = this.state.sumOne + 1)
+        }
       case 2:
-        return (this.state.sumTwo = this.state.sumTwo + 2);
+        if(this.state.sumTwo <= 10) {
+          return (this.state.sumTwo = this.state.sumTwo + 2)
+        }
       case 3:
-        return (this.state.sumThree = this.state.sumThree + 3);
+        if(this.state.sumThree <= 15) {
+          return (this.state.sumThree = this.state.sumThree + 3);
+        }
       case 4:
-        return (this.state.sumFour = this.state.sumFour + 4);
+        if(this.state.sumFour <= 20) {
+          return (this.state.sumFour = this.state.sumFour + 4);
+        }
       case 5:
-        return (this.state.sumFive = this.state.sumFive + 5);
+        if(this.state.sumFive <= 25) {
+          return (this.state.sumFive = this.state.sumFive + 5);
+        }
       case 6:
-        return (this.state.sumSix = this.state.sumSix + 6);
+        if(this.state.sumSix <= 30) {
+          return (this.state.sumSix = this.state.sumSix + 6);
+        }
     }
   };
   minusPrev = number => {
@@ -189,7 +212,7 @@ export default class ProductProvider extends Component {
     this.setState({
       displayDices: false,
       displayDices2: false,
-      displayDices3: false,
+      displayDices3: true,
       stay1: false,
       stay2: false,
       stay3: false,
@@ -205,12 +228,20 @@ export default class ProductProvider extends Component {
       
     });
   };
-  gameAgain = (num,val) => {
-    //this.minusPrev(val);
+  gameAgain = (num) => {
     this.setState({
-      ["stay" + num]: false
+      ["stay" + num]: false,
+      ["stayNum" + num]: Math.floor(Math.random() * 6) + 1
     });
   };
+  disableInput = (val, num, pos, num2, num3) => {
+    this.newRoll();
+    this.setState({
+      ["disableInp" + num + pos]: true,
+      [num2 + pos]: val,
+      ["disableInp" + num3 + pos]: false
+    })
+  }
   render() {
     return (
       <ProductContext.Provider
@@ -220,7 +251,8 @@ export default class ProductProvider extends Component {
           stayInGame: this.stayInGame,
           gameAgain: this.gameAgain,
           secondRoll: this.secondRoll,
-          newRoll: this.newRoll
+          newRoll: this.newRoll,
+          disableInput: this.disableInput
         }}
       >
         {this.props.children}

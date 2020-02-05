@@ -1,4 +1,8 @@
 .App {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,10 +15,9 @@
       justify-content: space-around;
 }
 
-.App .player-one,
 .App .display-dices,
 .App .player-two {
-  width: 30%;
+  width: 45%;
 }
 
 @media screen and (max-width: 768px) {
@@ -24,7 +27,6 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .App .player-one,
   .App .display-dices,
   .App .player-two {
     width: 100%;
@@ -48,5 +50,59 @@
 .dices img {
   width: 30%;
   margin-top: 20px;
+}
+
+.row {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.row .col-1 {
+  width: 15%;
+  padding: 2px;
+  background-color: dodgerblue;
+  color: white;
+  font-family: "Sorts Mill Goudy", serif;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
+.row .col-inp {
+  width: 17%;
+  height: 62%;
+  margin-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+  background-color: whitesmoke;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.row .col-inp:focus {
+  outline: none;
+}
+
+.row .col-inp:disabled {
+  font-weight: bolder;
+  background-color: lightgrey;
+}
+
+.row .col-inp #blue {
+  background-color: dodgerblue !important;
 }
 /*# sourceMappingURL=App.css.map */

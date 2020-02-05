@@ -8,9 +8,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="player-one">
-          <PlayerOne />
-        </div>
         <div className="display-dices">
           <Dices />
         </div>

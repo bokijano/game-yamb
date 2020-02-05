@@ -1,16 +1,18 @@
 .App {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  .player-one,
   .display-dices,
   .player-two {
-    width: 30%;
+    width: 45%;
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    .player-one,
     .display-dices,
     .player-two {
       width: 100%;
@@ -29,5 +31,48 @@
   img {
     width: 30%;
     margin-top: 20px;
+  }
+}
+
+// row style
+.row {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .col-1 {
+    width: 15%;
+    padding: 2px;
+    background-color: dodgerblue;
+    color: white;
+    font-family: "Sorts Mill Goudy", serif;
+    font-weight: bolder;
+    border-radius: 5px;
+  }
+  .col-inp {
+    width: 17%;
+    height: 62%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px;
+    background-color: whitesmoke;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &:disabled {
+      font-weight: bolder;
+      background-color: lightgrey;
+    }
+    #blue {
+      background-color: dodgerblue !important;
+    }
   }
 }

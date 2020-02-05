@@ -22,7 +22,7 @@ export default class Dices extends Component {
                       : null
                   }
                   onClick={() => value.stayInGame(1, value.diceNum1)}
-                  onDoubleClick={() => value.gameAgain(1, value.stayNum1)}
+                  onDoubleClick={() => value.gameAgain(1)}
                   src={
                     value.stay1
                       ? value.dices[value.stayNum1 - 1]
@@ -41,7 +41,7 @@ export default class Dices extends Component {
                       : null
                   }
                   onClick={() => value.stayInGame(2, value.diceNum2)}
-                  onDoubleClick={() => value.gameAgain(2, value.stayNum2)}
+                  onDoubleClick={() => value.gameAgain(2)}
                   src={
                     value.stay2
                       ? value.dices[value.stayNum2 - 1]
@@ -61,7 +61,7 @@ export default class Dices extends Component {
                       : null
                   }
                   onClick={() => value.stayInGame(3, value.diceNum3)}
-                  onDoubleClick={() => value.gameAgain(3, value.stayNum3)}
+                  onDoubleClick={() => value.gameAgain(3)}
                   src={
                     value.stay3
                       ? value.dices[value.stayNum3 - 1]
@@ -80,7 +80,7 @@ export default class Dices extends Component {
                       : null
                   }
                   onClick={() => value.stayInGame(4, value.diceNum4)}
-                  onDoubleClick={() => value.gameAgain(4, value.stayNum4)}
+                  onDoubleClick={() => value.gameAgain(4)}
                   src={
                     value.stay4
                       ? value.dices[value.stayNum4 - 1]
@@ -99,7 +99,7 @@ export default class Dices extends Component {
                       : null
                   }
                   onClick={() => value.stayInGame(5, value.diceNum5)}
-                  onDoubleClick={() => value.gameAgain(5, value.stayNum5)}
+                  onDoubleClick={() => value.gameAgain(5)}
                   src={
                     value.stay5
                       ? value.dices[value.stayNum5 - 1]
@@ -118,7 +118,7 @@ export default class Dices extends Component {
                       : null
                   }
                   onClick={() => value.stayInGame(6, value.diceNum6)}
-                  onDoubleClick={() => value.gameAgain(6, value.stayNum6)}
+                  onDoubleClick={() => value.gameAgain(6)}
                   src={
                     value.stay6
                       ? value.dices[value.stayNum6 - 1]
@@ -148,28 +148,7 @@ export default class Dices extends Component {
               Final roll
             </ButtonContainer>
 
-            <ButtonContainer onClick={value.newRoll}>
-              Roll again
-            </ButtonContainer>
-
-            <p>
-              1: <span>{value.sumOne}</span>
-            </p>
-            <p>
-              2: <span>{value.sumTwo}</span>
-            </p>
-            <p>
-              3: <span>{value.sumThree}</span>
-            </p>
-            <p>
-              4: <span>{value.sumFour}</span>
-            </p>
-            <p>
-              5: <span>{value.sumFive}</span>
-            </p>
-            <p>
-              6: <span>{value.sumSix}</span>
-            </p>
+            
           </div>
         )}
       </ProductConsumer>
