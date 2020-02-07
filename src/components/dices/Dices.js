@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ButtonContainer from "./../Button.js"
+import ButtonContainer from "./../Button.js";
 
 import { ProductConsumer } from "./../../Context";
 
@@ -147,8 +147,18 @@ export default class Dices extends Component {
             >
               Final roll
             </ButtonContainer>
-
-            
+            <ButtonContainer
+              onClick={value.newRoll}
+              disabled={value.displayDices4}
+            >
+              accept and continue
+            </ButtonContainer>
+            <ButtonContainer
+              onClick={value.undoMove}
+              disabled={value.displayDices5}
+            >
+              return move
+            </ButtonContainer>
           </div>
         )}
       </ProductConsumer>

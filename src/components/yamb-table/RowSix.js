@@ -9,7 +9,9 @@ export default class RowThree extends Component {
           <div style={{ marginTop: "-7%" }} className="row">
             <p className="col-1">6</p>
             <input
-              onClick={() => value.disableInput(value.sumSix, 6, "Down", "six", "Max")}
+              onClick={() =>
+                value.disableInput(value.sumSix, 6, "Down", "six", "Max")
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp6Down}
@@ -48,15 +50,15 @@ export default class RowThree extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.suSix, 6, "Hand", "six")}
+              onClick={() => value.disableInput(value.sumSix, 6, "Hand", "six")}
               className="col-inp"
               type="submit"
               disabled={value.disableInp6Hand}
               value={
                 value.disableInp6Hand
                   ? value.sixHand
-                  : value.suSix > 0
-                  ? value.suSix
+                  : value.sumSix > 0
+                  ? value.sumSix
                   : ""
               }
             />
@@ -64,6 +66,6 @@ export default class RowThree extends Component {
           </div>
         )}
       </ProductConsumer>
-  );
-}; 
-};   
+    );
+  }
+}

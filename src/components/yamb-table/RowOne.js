@@ -2,16 +2,27 @@ import React, { Component } from "react";
 import { ProductConsumer } from "./../../Context";
 
 export default class RowOne extends Component {
+  state = {
+    name: ""
+  }
+  handleChange = e => {
+    this.setState({
+      name: e.target.value
+    })
+  }
   render() {
     return (
       <ProductConsumer>
         {value => (
           <div style={{ marginTop: "-7%" }} className="row">
             <p className="col-1">1</p>
+            
             <input
               onClick={() => value.disableInput(value.sumOne, 1, "Down", "one", 2)}
+              onDoubleClick={() => value.undoMove(value.sumOne, 1, "Down", "one", 2)}
               className="col-inp"
               type="submit"
+              name="name"
               disabled={value.disableInp1Down}
               value={
                 value.disableInp1Down
