@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "909be2cfdd938b339b49",
-    "url": "/game-yamb/static/css/main.f851a584.chunk.css"
+    "revision": "5719bed092505382cdbf",
+    "url": "/game-yamb/static/css/main.9676617e.chunk.css"
   },
   {
-    "revision": "909be2cfdd938b339b49",
-    "url": "/game-yamb/static/js/main.909be2cf.chunk.js"
+    "revision": "5719bed092505382cdbf",
+    "url": "/game-yamb/static/js/main.5719bed0.chunk.js"
   },
   {
     "revision": "26cc8bd4db998a08362e",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/game-yamb/static/media/dice6.428963c9.png"
   },
   {
-    "revision": "dfa9d65c242a49a2b24d7a8b2e0bbc18",
+    "revision": "c9234e46dd15ca034042c137148ee955",
     "url": "/game-yamb/index.html"
   }
 ];
