@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import PlayerOne from "./components/player One/PlayerOne.js";
-import PlayerTwo from "./components/player Two/PlayerTwo.js";
+import Player from "./components/player/Player.js";
 import Dices from "./components/dices/Dices";
 
 class App extends Component {
@@ -12,7 +11,7 @@ class App extends Component {
           <Dices />
         </div>
         <div className="player-two">
-          <PlayerTwo />
+          <Player />
         </div>
       </div>
     );

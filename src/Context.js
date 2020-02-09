@@ -40,6 +40,10 @@ export default class ProductProvider extends Component {
     sumFour: 0,
     sumFive: 0,
     sumSix: 0,
+    maxValue: 0,
+    minValue: 0,
+    kentaValue: 0,
+    trilingValue: 0,
     result: [],
     result1: [],
     disableInp1Down: false,
@@ -94,57 +98,46 @@ export default class ProductProvider extends Component {
     sumFirstFree: 0,
     sumFirstUp: 0,
     sumFirstHand: 0,
-    sumFirstAll: 0
+    sumFirstAll: 0,
+    maxDown: "",
+    maxFree: "",
+    maxUp: "",
+    maxHand: "",
+    disableInpMaxDown: true,
+    disableInpMaxFree: false,
+    disableInpMaxUp: false,
+    disableInpMaxHand: false,
+    minDown: "",
+    minFree: "",
+    minUp: "",
+    minHand: "",
+    disableInpMinDown: true,
+    disableInpMinFree: false,
+    disableInpMinUp: false,
+    disableInpMinHand: false,
+    calcSecDown: 0,
+    calcSecFree: 0,
+    calcSecUp: 0,
+    calcSecHand: 0,
+    calcSecAll: 0, 
+    kentaDown: "",
+    kentaFree: "",
+    kentaUp: "",
+    kentaHand: "",
+    disableInpKentaDown: true,
+    disableInpKentaFree: false,
+    disableInpKentaUp: false,
+    disableInpKentaHand: false, 
+    trilingDown: "",
+    trilingFree: "",
+    trilingUp: "",
+    trilingHand: "",
+    disableInpTrilingDown: true,
+    disableInpTrilingFree: false,
+    disableInpTrilingUp: false,
+    disableInpTrilingHand: false
   };
-  sumFirstColumn() {
-    let sumFirstDown =
-      +this.state.oneDown +
-      +this.state.twoDown +
-      +this.state.threeDown +
-      +this.state.fourDown +
-      +this.state.fiveDown +
-      +this.state.sixDown;
-    let sumFirstFree =
-      +this.state.oneFree +
-      +this.state.twoFree +
-      +this.state.threeFree +
-      +this.state.fourFree +
-      +this.state.fiveFree +
-      +this.state.sixFree;
-    let sumFirstUp =
-      +this.state.oneUp +
-      +this.state.twoUp +
-      +this.state.threeUp +
-      +this.state.fourUp +
-      +this.state.fiveUp +
-      +this.state.sixUp;
-    let sumFirstHand =
-      +this.state.oneHand +
-      +this.state.twoHand +
-      +this.state.threeHand +
-      +this.state.fourHand +
-      +this.state.fiveHand +
-      +this.state.sixHand;
 
-    this.setState({
-      sumFirstDown: this.addBonus(sumFirstDown),
-      sumFirstFree: this.addBonus(sumFirstFree),
-      sumFirstUp: this.addBonus(sumFirstUp),
-      sumFirstHand: this.addBonus(sumFirstHand),
-      sumFirstAll: this.addBonus(sumFirstDown)
-       + this.addBonus(sumFirstFree)
-       + this.addBonus(sumFirstUp)
-       + this.addBonus(sumFirstHand)
-    });
-  }
-  addBonus = sum => {
-    if (sum >= 60) {
-      sum = sum + 30;
-    } else {
-      sum = sum;
-    }
-    return sum;
-  };
   changeDice = () => {
     let diceNum1 = Math.floor(Math.random() * 6) + 1;
     let diceNum2 = Math.floor(Math.random() * 6) + 1;
@@ -157,7 +150,15 @@ export default class ProductProvider extends Component {
 
     for (let i = 0; i < result.length; i++) {
       this.sumDices(result[i]);
+      this.displayTriling(result[i]);
     }
+
+
+    this.displayMax(result);
+    this.displayMin(result);
+    this.displayKenta(result, 66);
+    this.displayTriling(result);
+
     this.setState({
       diceNum1: diceNum1,
       diceNum2: diceNum2,
@@ -229,6 +230,19 @@ export default class ProductProvider extends Component {
 
     let result = [dice1, dice2, dice3, dice4, dice5, dice6];
 
+    this.displayMax(result);
+    this.displayMin(result);
+
+    for (let i = 0; i < result.length; i++) {
+      this.displayTriling(result[i]);
+    }
+
+    if  (this.state.displayDices3 && this.state.displayDices2 == false) {
+      this.displayKenta(result, 56);
+    } else if (this.state.displayDices2 && this.state.displayDices3 == false) {
+      this.displayKenta(result, 46);
+    }
+
     this.setState({
       diceNum1: dice1,
       diceNum2: dice2,
@@ -245,27 +259,27 @@ export default class ProductProvider extends Component {
   sumDices = number => {
     switch (number) {
       case 1:
-        if (this.state.sumOne <= 5) {
+        if (this.state.sumOne < 5) {
           return (this.state.sumOne = this.state.sumOne + 1);
         }
       case 2:
-        if (this.state.sumTwo <= 10) {
+        if (this.state.sumTwo < 10) {
           return (this.state.sumTwo = this.state.sumTwo + 2);
         }
       case 3:
-        if (this.state.sumThree <= 15) {
+        if (this.state.sumThree < 15) {
           return (this.state.sumThree = this.state.sumThree + 3);
         }
       case 4:
-        if (this.state.sumFour <= 20) {
+        if (this.state.sumFour < 20) {
           return (this.state.sumFour = this.state.sumFour + 4);
         }
       case 5:
-        if (this.state.sumFive <= 25) {
+        if (this.state.sumFive < 25) {
           return (this.state.sumFive = this.state.sumFive + 5);
         }
       case 6:
-        if (this.state.sumSix <= 30) {
+        if (this.state.sumSix < 30) {
           return (this.state.sumSix = this.state.sumSix + 6);
         }
     }
@@ -286,6 +300,163 @@ export default class ProductProvider extends Component {
         return (this.state.sumSix = this.state.sumSix - 6);
     }
   };
+  sumFirstColumn() {
+    let sumFirstDown =
+      +this.state.oneDown +
+      +this.state.twoDown +
+      +this.state.threeDown +
+      +this.state.fourDown +
+      +this.state.fiveDown +
+      +this.state.sixDown;
+    let sumFirstFree =
+      +this.state.oneFree +
+      +this.state.twoFree +
+      +this.state.threeFree +
+      +this.state.fourFree +
+      +this.state.fiveFree +
+      +this.state.sixFree;
+    let sumFirstUp =
+      +this.state.oneUp +
+      +this.state.twoUp +
+      +this.state.threeUp +
+      +this.state.fourUp +
+      +this.state.fiveUp +
+      +this.state.sixUp;
+    let sumFirstHand =
+      +this.state.oneHand +
+      +this.state.twoHand +
+      +this.state.threeHand +
+      +this.state.fourHand +
+      +this.state.fiveHand +
+      +this.state.sixHand;
+
+    this.setState({
+      sumFirstDown: this.addBonus(sumFirstDown),
+      sumFirstFree: this.addBonus(sumFirstFree),
+      sumFirstUp: this.addBonus(sumFirstUp),
+      sumFirstHand: this.addBonus(sumFirstHand),
+      sumFirstAll:
+        this.addBonus(sumFirstDown) +
+        this.addBonus(sumFirstFree) +
+        this.addBonus(sumFirstUp) +
+        this.addBonus(sumFirstHand)
+    });
+  }
+  addBonus = sum => {
+    if (sum >= 60) {
+      sum = sum + 30;
+    } else {
+      sum = sum;
+    }
+    return sum;
+  };
+
+  displayMax = result => {
+    let smallestNumber = Math.min(...result);
+
+    let newResult = result.filter(item => item !== smallestNumber);
+
+    if (newResult.length < 5) {
+      newResult = [...newResult, smallestNumber];
+    }
+
+    let sumArray = newResult.reduce((a, b) => a + b);
+
+    this.setState({
+      maxValue: sumArray
+    });
+  };
+  displayMin = result => {
+    let biggestNumber = Math.max(...result);
+
+    let newResult = result.filter(item => item !== biggestNumber);
+
+    if (newResult.length < 5) {
+      newResult = [...newResult, biggestNumber];
+    }
+
+    let sumArray = newResult.reduce((a, b) => a + b);
+
+    this.setState({
+      minValue: sumArray
+    });
+  };
+  calcSecondColumn = () => {
+    let calcDown =
+      (this.state.maxDown - this.state.minDown) * this.state.oneDown;
+    let calcFree =
+      (this.state.maxFree - this.state.minFree) * this.state.oneFree;
+    let calcUp = (this.state.maxUp - this.state.minUp) * this.state.oneUp;
+    let calcHand =
+      (this.state.maxHand - this.state.minHand) * this.state.oneHand;
+    this.setState({
+      calcSecDown: calcDown,
+      calcSecFree: calcFree,
+      calcSecUp: calcUp,
+      calcSecHand: calcHand,
+      calcSecAll: calcDown + calcFree + calcUp + calcHand
+    });
+  };
+
+  displayKenta = (result, val) => {
+    let one = result.indexOf(1, 0);
+    let two = result.indexOf(2, 0);
+    let three = result.indexOf(3, 0);
+    let four = result.indexOf(4, 0);
+    let five = result.indexOf(5, 0);
+    let six = result.indexOf(6, 0);
+
+    if (one != -1 && two != -1 && three != -1 && four != -1 && five != -1) {
+      this.setState({
+        kentaValue: val
+      })
+    } else if (two != -1 && three != -1 && four != -1 && five != -1 && six != -1) {
+      this.setState({
+        kentaValue: val
+      })
+    }
+  };
+  displayTriling = number => {
+    switch(number) {
+      case 1:
+        if (this.state.sumOne >= 3) {
+          this.setState({
+            trilingValue: 23
+          })
+        }
+      case 2:
+        if (this.state.sumTwo >= 6) {
+          this.setState({
+            trilingValue: 26
+          })          
+     }
+     case 3:
+      if (this.state.sumThree >= 9) {
+        this.setState({
+          trilingValue: 29
+        })
+      }
+    case 4:
+      if (this.state.sumFour >= 12) {
+        this.setState({
+          trilingValue: 32
+        })          
+   }  
+   case 5:
+    if (this.state.sumFive >= 15) {
+      this.setState({
+        trilingValue: 35
+      })
+    }
+  case 6:
+    if (this.state.sumSix >= 18) {
+      this.setState({
+        trilingValue: 38
+      })          
+ }      
+  }
+}
+
   dicesZero = () => {
     this.setState({
       sumOne: 0,
@@ -293,11 +464,16 @@ export default class ProductProvider extends Component {
       sumThree: 0,
       sumFour: 0,
       sumFive: 0,
-      sumSix: 0
+      sumSix: 0,
+      maxValue: 0,
+      minValue: 0,
+      kentaValue: 0,
+      trilingValue: 0
     });
   };
   newRoll = () => {
     this.sumFirstColumn();
+    this.calcSecondColumn();
     this.setState({
       displayDices: false,
       displayDices4: true

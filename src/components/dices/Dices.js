@@ -11,6 +11,10 @@ export default class Dices extends Component {
           <div className="game">
             {value.displayDices ? (
               <div className="dices">
+                <div className="rules">
+                  <p>one click save the dice</p>
+                  <p>double click roll again the dice</p>
+                </div>
                 <img
                   style={
                     value.stay1

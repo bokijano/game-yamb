@@ -2,14 +2,6 @@ import React, { Component } from "react";
 import { ProductConsumer } from "./../../Context";
 
 export default class RowOne extends Component {
-  state = {
-    name: ""
-  }
-  handleChange = e => {
-    this.setState({
-      name: e.target.value
-    })
-  }
   render() {
     return (
       <ProductConsumer>
