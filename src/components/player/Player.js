@@ -15,6 +15,8 @@ import RowTriling from "./../yamb-table/RowTriling";
 import RowFul from "./../yamb-table/RowFul";
 import RowPoker from "./../yamb-table/RowPoker";
 import RowYamb from "./../yamb-table/RowYamb";
+import SumLastPart from "./../yamb-table/SumLastPart";
+import TotalSum from "./../yamb-table/TotalSum";
 
 export default class PlayerTwo extends Component {
   render() {
@@ -35,7 +37,9 @@ export default class PlayerTwo extends Component {
         <RowTriling />
         <RowFul />
         <RowPoker />
-        <RowYamb /> 
+        <RowYamb />
+        <SumLastPart />
+        <TotalSum />
       </div>
     );
   }

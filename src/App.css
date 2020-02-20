@@ -51,6 +51,10 @@
   cursor: pointer;
 }
 
+.dices:focus {
+  outline: none;
+}
+
 .dices .rules {
   width: 80%;
   margin-left: auto;
@@ -86,29 +90,30 @@
 .row .col-1 {
   width: 5vw;
   height: 2vw;
-  margin-top: 1vw;
+  margin-top: 0.9vw;
   margin-left: auto;
   margin-right: auto;
-  padding: 2px;
+  padding-top: 2px;
   background-color: dodgerblue;
+  border-bottom: 0.5px solid white;
   color: white;
-  font-family: "Sorts Mill Goudy", serif;
-  font-weight: bolder;
+  font-family: "Prata", serif;
+  /*font-weight: bolder;*/
   border-radius: 5px;
 }
 
 .row .col-inp {
   width: 5vw;
   height: 2vw;
-  margin-top: 1vw;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 4px;
+  margin: 1vw auto 0 auto;
+  padding-bottom: 2px;
   background-color: whitesmoke;
   color: #333;
   border: 1px solid #333;
   border-radius: 5px;
   font-weight: bolder;
+  font-family: "Taviray", serif;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -137,7 +142,7 @@
   .row .col-inp {
     width: 14vw;
     height: 6vw;
-    margin-top: 4vw;
+    margin-top: 4.5vw;
   }
 }
 
@@ -146,8 +151,11 @@
   .row .col-inp {
     width: 60px;
     height: 6.5vw;
-    margin-top: 2.5vw;
-    font-size: 0.8rem;
+    margin-top: 3vw;
+    font-size: 0.9rem;
+  }
+  .row .col-1 {
+    padding-top: 5px;
   }
 }
 

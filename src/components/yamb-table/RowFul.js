@@ -12,82 +12,73 @@ export default class RowFul extends Component {
             <input
               onClick={() =>
                 value.disableInput(
-                  value.trilingValue,
-                  "Triling",
+                  value.fulValue,
+                  "Ful",
                   "Down",
-                  "triling",
-                  "Ful"
+                  "ful",
+                  "Poker"
                 )
               }
               className="col-inp"
               type="submit"
               name="name"
-              disabled={value.disableInpTrilingDown}
+              disabled={value.disableInpFulDown}
               value={
-                value.disableInpTrilingDown
-                  ? value.trilingDown
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpFulDown
+                  ? value.fulDown
+                  : value.fulValue > 0
+                  ? value.fulValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(
-                  value.trilingValue,
-                  "Triling",
-                  "Free",
-                  "triling"
-                )
+                value.disableInput(value.fulValue, "Ful", "Free", "ful")
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingFree}
+              disabled={value.disableInpFulFree}
               value={
-                value.disableInpTrilingFree
-                  ? value.trilingFree
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpFulFree
+                  ? value.fulFree
+                  : value.fulValue > 0
+                  ? value.fulValue
                   : ""
               }
             />
             <input
               onClick={() =>
                 value.disableInput(
-                  value.trilingValue,
-                  "Triling",
+                  value.fulValue,
+                  "Ful",
                   "Up",
-                  "triling"
+                  "ful",
+                  "Triling"
                 )
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingUp}
+              disabled={value.disableInpFulUp}
               value={
-                value.disableInpTrilingUp
-                  ? value.trilingUp
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpFulUp
+                  ? value.fulUp
+                  : value.fulValue > 0
+                  ? value.fulValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(
-                  value.trilingValue,
-                  "Triling",
-                  "Hand",
-                  "triling"
-                )
+                value.disableInput(value.fulValue, "Ful", "Hand", "ful")
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingHand}
+              disabled={value.disableInpFulHand}
               value={
-                value.disableInpTrilingHand
-                  ? value.trilingHand
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpFulHand
+                  ? value.fulHand
+                  : value.fulValue > 0
+                  ? value.fulValue
                   : ""
               }
             />

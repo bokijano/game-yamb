@@ -11,68 +11,68 @@ export default class RowYamb extends Component {
 
             <input
               onClick={() =>
-                value.disableInput(
-                  value.trilingValue,
-                  "Triling",
-                  "Down",
-                  "triling",
-                  "Ful"
-                )
+                value.disableInput(value.yambValue, "Yamb", "Down", "yamb")
               }
               className="col-inp"
               type="submit"
               name="name"
-              disabled={value.disableInpTrilingDown}
+              disabled={value.disableInpYambDown}
               value={
-                value.disableInpTrilingDown
-                  ? value.trilingDown
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpYambDown
+                  ? value.yambDown
+                  : value.yambValue > 0
+                  ? value.yambValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Free", "triling")
+                value.disableInput(value.yambValue, "Yamb", "Free", "yamb")
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingFree}
+              disabled={value.disableInpYambFree}
               value={
-                value.disableInpTrilingFree
-                  ? value.trilingFree
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpYambFree
+                  ? value.yambFree
+                  : value.yambValue > 0
+                  ? value.yambValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Up", "triling")
+                value.disableInput(
+                  value.yambValue,
+                  "Yamb",
+                  "Up",
+                  "yamb",
+                  "Poker"
+                )
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingUp}
+              disabled={value.disableInpYambUp}
               value={
-                value.disableInpTrilingUp
-                  ? value.trilingUp
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpYambUp
+                  ? value.yambUp
+                  : value.yambValue > 0
+                  ? value.yambValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Hand", "triling")
+                value.disableInput(value.yambValue, "Yamb", "Hand", "yamb")
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingHand}
+              disabled={value.disableInpYambHand}
               value={
-                value.disableInpTrilingHand
-                  ? value.trilingHand
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpYambHand
+                  ? value.yambHand
+                  : value.yambValue > 0
+                  ? value.yambValue
                   : ""
               }
             />

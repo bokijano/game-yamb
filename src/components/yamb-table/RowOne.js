@@ -6,12 +6,16 @@ export default class RowOne extends Component {
     return (
       <ProductConsumer>
         {value => (
-          <div style={{ marginTop: "-7%" }} className="row">
+          <div style={{ marginTop: "-6%" }} className="row">
             <p className="col-1">1</p>
-            
+
             <input
-              onClick={() => value.disableInput(value.sumOne, 1, "Down", "one", 2)}
-              onDoubleClick={() => value.undoMove(value.sumOne, 1, "Down", "one", 2)}
+              onClick={() =>
+                value.disableInput(value.sumOne, 1, "Down", "one", 2)
+              }
+              onDoubleClick={() =>
+                value.undoMove(value.sumOne, 1, "Down", "one", 2)
+              }
               className="col-inp"
               type="submit"
               name="name"

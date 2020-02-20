@@ -12,67 +12,73 @@ export default class RowPoker extends Component {
             <input
               onClick={() =>
                 value.disableInput(
-                  value.trilingValue,
-                  "Triling",
+                  value.pokerValue,
+                  "Poker",
                   "Down",
-                  "triling",
-                  "Ful"
+                  "poker",
+                  "Yamb"
                 )
               }
               className="col-inp"
               type="submit"
               name="name"
-              disabled={value.disableInpTrilingDown}
+              disabled={value.disableInpPokerDown}
               value={
-                value.disableInpTrilingDown
-                  ? value.trilingDown
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpPokerDown
+                  ? value.pokerDown
+                  : value.pokerValue > 0
+                  ? value.pokerValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Free", "triling")
+                value.disableInput(value.pokerValue, "Poker", "Free", "poker")
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingFree}
+              disabled={value.disableInpPokerFree}
               value={
-                value.disableInpTrilingFree
-                  ? value.trilingFree
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpPokerFree
+                  ? value.pokerFree
+                  : value.pokerValue > 0
+                  ? value.pokerValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Up", "triling")
+                value.disableInput(
+                  value.pokerValue,
+                  "Poker",
+                  "Up",
+                  "poker",
+                  "Ful"
+                )
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingUp}
+              disabled={value.disableInpPokerUp}
               value={
-                value.disableInpTrilingUp
-                  ? value.trilingUp
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpPokerUp
+                  ? value.pokerUp
+                  : value.pokerValue > 0
+                  ? value.pokerValue
                   : ""
               }
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Hand", "triling")
+                value.disableInput(value.pokerValue, "Poker", "Hand", "poker")
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingHand}
+              disabled={value.disableInpPokerHand}
               value={
-                value.disableInpTrilingHand
-                  ? value.trilingHand
-                  : value.trilingValue > 0
-                  ? value.trilingValue
+                value.disableInpPokerHand
+                  ? value.pokerHand
+                  : value.pokerValue > 0
+                  ? value.pokerValue
                   : ""
               }
             />

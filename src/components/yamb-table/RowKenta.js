@@ -6,7 +6,7 @@ export default class RowMin extends Component {
     return (
       <ProductConsumer>
         {value => (
-          <div style={{ marginTop: "-7%" }} className="row">
+          <div style={{ marginTop: "-6%" }} className="row">
             <p className="col-1">KENTA</p>
 
             <input
