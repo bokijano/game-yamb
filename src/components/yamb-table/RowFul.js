@@ -7,7 +7,7 @@ export default class RowFul extends Component {
       <ProductConsumer>
         {value => (
           <div style={{ marginTop: "-7%" }} className="row">
-            <p className="col-1">FUL</p>
+            <p className="col-1">FULL</p>
 
             <input
               onClick={() =>

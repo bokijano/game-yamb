@@ -7,7 +7,7 @@ export default class RowTriling extends Component {
       <ProductConsumer>
         {value => (
           <div style={{ marginTop: "-7%" }} className="row">
-            <p className="col-1">TRILING</p>
+            <p className="col-1">TRILL</p>
 
             <input
               onClick={() =>
@@ -33,7 +33,12 @@ export default class RowTriling extends Component {
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Free", "triling")
+                value.disableInput(
+                  value.trilingValue,
+                  "Triling",
+                  "Free",
+                  "triling"
+                )
               }
               className="col-inp"
               type="submit"
@@ -48,7 +53,12 @@ export default class RowTriling extends Component {
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Up", "triling")
+                value.disableInput(
+                  value.trilingValue,
+                  "Triling",
+                  "Up",
+                  "triling"
+                )
               }
               className="col-inp"
               type="submit"
@@ -63,7 +73,12 @@ export default class RowTriling extends Component {
             />
             <input
               onClick={() =>
-                value.disableInput(value.trilingValue, "Triling", "Hand", "triling")
+                value.disableInput(
+                  value.trilingValue,
+                  "Triling",
+                  "Hand",
+                  "triling"
+                )
               }
               className="col-inp"
               type="submit"

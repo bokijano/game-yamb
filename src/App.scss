@@ -7,9 +7,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  .display-dices,
-  .player-two {
+  .display-dices {
     width: 45%;
+  }
+  .player-two {
+    width: 40%;
   }
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -53,7 +55,11 @@
   flex-direction: row;
   justify-content: space-between;
   .col-1 {
-    width: 15%;
+    width: 5vw;
+    height: 2vw;
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
     padding: 2px;
     background-color: dodgerblue;
     color: white;
@@ -62,9 +68,9 @@
     border-radius: 5px;
   }
   .col-inp {
-    width: 17%;
-    height: 62%;
-    margin-top: 4%;
+    width: 5vw;
+    height: 2vw;
+    margin-top: 1vw;
     margin-left: auto;
     margin-right: auto;
     padding: 4px;
@@ -83,6 +89,38 @@
     }
     #blue {
       background-color: dodgerblue !important;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .col-1,
+    .col-inp {
+      height: 2.5vw;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-1,
+    .col-inp {
+      width: 14vw;
+      height: 6vw;
+      margin-top: 4vw;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .col-1,
+    .col-inp {
+      width: 60px;
+      height: 6.5vw;
+      margin-top: 2.5vw;
+      font-size: 0.8rem;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    .col-1,
+    .col-inp {
+      width: 55px;
+      height: 7vw;
+      margin-top: 1.7vw;
+      font-size: 0.8rem;
     }
   }
 }

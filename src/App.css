@@ -15,9 +15,12 @@
       justify-content: space-around;
 }
 
-.App .display-dices,
-.App .player-two {
+.App .display-dices {
   width: 45%;
+}
+
+.App .player-two {
+  width: 40%;
 }
 
 @media screen and (max-width: 768px) {
@@ -81,7 +84,11 @@
 }
 
 .row .col-1 {
-  width: 15%;
+  width: 5vw;
+  height: 2vw;
+  margin-top: 1vw;
+  margin-left: auto;
+  margin-right: auto;
   padding: 2px;
   background-color: dodgerblue;
   color: white;
@@ -91,9 +98,9 @@
 }
 
 .row .col-inp {
-  width: 17%;
-  height: 62%;
-  margin-top: 4%;
+  width: 5vw;
+  height: 2vw;
+  margin-top: 1vw;
   margin-left: auto;
   margin-right: auto;
   padding: 4px;
@@ -116,5 +123,41 @@
 
 .row .col-inp #blue {
   background-color: dodgerblue !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .row .col-1,
+  .row .col-inp {
+    height: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row .col-1,
+  .row .col-inp {
+    width: 14vw;
+    height: 6vw;
+    margin-top: 4vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .row .col-1,
+  .row .col-inp {
+    width: 60px;
+    height: 6.5vw;
+    margin-top: 2.5vw;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .row .col-1,
+  .row .col-inp {
+    width: 55px;
+    height: 7vw;
+    margin-top: 1.7vw;
+    font-size: 0.8rem;
+  }
 }
 /*# sourceMappingURL=App.css.map */
