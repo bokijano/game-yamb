@@ -67,11 +67,11 @@ export default class RowYamb extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpYambHand}
+              disabled={value.disableInpYambHand || value.disableHandColumn}
               value={
                 value.disableInpYambHand
                   ? value.yambHand
-                  : value.yambValue > 0
+                  : value.yambValue > 0 && value.disableHandColumn == false
                   ? value.yambValue
                   : ""
               }

@@ -9,19 +9,19 @@ export default class SumLastPart extends Component {
           <div style={{ marginTop: "-7%", fontSize: "1.2rem" }} className="row">
             <p className="col-1">SUM</p>
             <p className="col-1">
-              {value.sumFirstDown > 0 ? value.sumFirstDown : null}
+              {value.sumLastDown > 0 ? value.sumLastDown : null}
             </p>
             <p className="col-1">
-              {value.sumFirstFree > 0 ? value.sumFirstFree : null}
+              {value.sumLastFree > 0 ? value.sumLastFree : null}
             </p>
             <p className="col-1">
-              {value.sumFirstUp > 0 ? value.sumFirstUp : null}
+              {value.sumLastUp > 0 ? value.sumLastUp : null}
             </p>
             <p className="col-1">
-              {value.sumFirstHand > 0 ? value.sumFirstHand : null}
+              {value.sumLastHand > 0 ? value.sumLastHand : null}
             </p>
             <p className="col-1">
-              {value.sumFirstAll > 0 ? value.sumFirstAll : null}
+              {value.sumLastAll > 0 ? value.sumLastAll : null}
             </p>
           </div>
         )}

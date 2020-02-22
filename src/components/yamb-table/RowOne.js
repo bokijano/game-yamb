@@ -58,11 +58,11 @@ export default class RowOne extends Component {
               onClick={() => value.disableInput(value.sumOne, 1, "Hand", "one")}
               className="col-inp"
               type="submit"
-              disabled={value.disableInp1Hand}
+              disabled={value.disableInp1Hand || value.disableHandColumn}
               value={
                 value.disableInp1Hand
                   ? value.oneHand
-                  : value.sumOne > 0
+                  : value.sumOne > 0 && value.disableHandColumn == false
                   ? value.sumOne
                   : ""
               }

@@ -37,7 +37,9 @@ export default class RowThree extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumSix, 6, "Up", "six")}
+              onClick={() =>
+                value.disableInput(value.sumSix, 6, "Up", "six", 5)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp6Up}
@@ -53,11 +55,11 @@ export default class RowThree extends Component {
               onClick={() => value.disableInput(value.sumSix, 6, "Hand", "six")}
               className="col-inp"
               type="submit"
-              disabled={value.disableInp6Hand}
+              disabled={value.disableInp6Hand || value.disableHandColumn}
               value={
                 value.disableInp6Hand
                   ? value.sixHand
-                  : value.sumSix > 0
+                  : value.sumSix > 0 && value.disableHandColumn == false
                   ? value.sumSix
                   : ""
               }

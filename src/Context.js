@@ -34,6 +34,7 @@ export default class ProductProvider extends Component {
     stay4: false,
     stay5: false,
     stay6: false,
+    disableHandColumn: false,
     sumOne: 0,
     sumTwo: 0,
     sumThree: 0,
@@ -44,6 +45,9 @@ export default class ProductProvider extends Component {
     minValue: 0,
     kentaValue: 0,
     trilingValue: 0,
+    fulValue: 0,
+    pokerValue: 0,
+    yambValue: 0,
     result: [],
     result1: [],
     disableInp1Down: false,
@@ -119,7 +123,7 @@ export default class ProductProvider extends Component {
     calcSecFree: 0,
     calcSecUp: 0,
     calcSecHand: 0,
-    calcSecAll: 0, 
+    calcSecAll: 0,
     kentaDown: "",
     kentaFree: "",
     kentaUp: "",
@@ -127,7 +131,7 @@ export default class ProductProvider extends Component {
     disableInpKentaDown: true,
     disableInpKentaFree: false,
     disableInpKentaUp: true,
-    disableInpKentaHand: false, 
+    disableInpKentaHand: false,
     trilingDown: "",
     trilingFree: "",
     trilingUp: "",
@@ -135,7 +139,7 @@ export default class ProductProvider extends Component {
     disableInpTrilingDown: true,
     disableInpTrilingFree: false,
     disableInpTrilingUp: true,
-    disableInpTrilingHand: false, 
+    disableInpTrilingHand: false,
     fulDown: "",
     fulFree: "",
     fulUp: "",
@@ -143,7 +147,7 @@ export default class ProductProvider extends Component {
     disableInpFulDown: true,
     disableInpFulFree: false,
     disableInpFulUp: true,
-    disableInpFulHand: false, 
+    disableInpFulHand: false,
     pokerDown: "",
     pokerFree: "",
     pokerUp: "",
@@ -151,7 +155,7 @@ export default class ProductProvider extends Component {
     disableInpPokerDown: true,
     disableInpPokerFree: false,
     disableInpPokerUp: true,
-    disableInpPokerHand: false, 
+    disableInpPokerHand: false,
     yambDown: "",
     yambFree: "",
     yambUp: "",
@@ -159,9 +163,15 @@ export default class ProductProvider extends Component {
     disableInpYambDown: true,
     disableInpYambFree: false,
     disableInpYambUp: false,
-    disableInpYambHand: false
+    disableInpYambHand: false,
+    sumLastDown: 0,
+    sumLastFree: 0,
+    sumLastUp: 0,
+    sumLastHand: 0,
+    sumLastAll: 0,
+    sumTotal: 0
   };
-
+  // first roll
   changeDice = () => {
     let diceNum1 = Math.floor(Math.random() * 6) + 1;
     let diceNum2 = Math.floor(Math.random() * 6) + 1;
@@ -171,17 +181,38 @@ export default class ProductProvider extends Component {
     let diceNum6 = Math.floor(Math.random() * 6) + 1;
 
     let result = [diceNum1, diceNum2, diceNum3, diceNum4, diceNum5, diceNum6];
-
+    let resultMax = [
+      diceNum1,
+      diceNum2,
+      diceNum3,
+      diceNum4,
+      diceNum5,
+      diceNum6
+    ];
+    let resultMin = [
+      diceNum1,
+      diceNum2,
+      diceNum3,
+      diceNum4,
+      diceNum5,
+      diceNum6
+    ];
+    if (this.state.displayDices == false) {
+      this.setState({
+        kentaValue: this.displayKenta(result, 66)
+      });
+    } else {
+      this.setState({
+        kentaValue: 0
+      });
+    }
     for (let i = 0; i < result.length; i++) {
       this.sumDices(result[i]);
       this.displayTriling(result[i]);
     }
 
-
-    this.displayMax(result);
-    this.displayMin(result);
-    this.displayKenta(result, 66);
-    this.displayTriling(result);
+    this.displayMax(resultMax);
+    this.displayMin(resultMin);
 
     this.setState({
       diceNum1: diceNum1,
@@ -196,7 +227,7 @@ export default class ProductProvider extends Component {
       result: result
     });
   };
-
+  // second and final roll
   secondRoll = (bool2, bool3) => {
     let dice1 = this.state.diceNum1;
     if (dice1 == this.state.stayNum1) {
@@ -252,20 +283,48 @@ export default class ProductProvider extends Component {
       this.minusPrev(this.state.diceNum6);
     }
 
+    if (
+      dice1 != this.state.stayNum1 &&
+      dice2 != this.state.stayNum2 &&
+      dice3 != this.state.stayNum3 &&
+      dice4 != this.state.stayNum4 &&
+      dice5 != this.state.stayNum5 &&
+      dice6 != this.state.stayNum6
+    ) {
+      this.setState({
+        disableHandColumn: false
+      });
+    } else {
+      this.setState({
+        disableHandColumn: true
+      });
+    }
+    console.log(this.state.disableHandColumn);
+    console.log(this.state.disableInp1Hand);
+
     let result = [dice1, dice2, dice3, dice4, dice5, dice6];
+    let resultMax = [dice1, dice2, dice3, dice4, dice5, dice6];
+    let resultMin = [dice1, dice2, dice3, dice4, dice5, dice6];
 
-    this.displayMax(result);
-    this.displayMin(result);
-
-    for (let i = 0; i < result.length; i++) {
-      this.displayTriling(result[i]);
+    if (this.state.displayDices3 && this.state.displayDices2 == false) {
+      this.setState({
+        kentaValue: this.displayKenta(result, 56)
+      });
+      for (let i = 0; i < result.length; i++) {
+        this.displayTriling(result[i]);
+      }
+    }
+    if (this.state.displayDices2 && this.state.displayDices3 == false) {
+      this.setState({
+        kentaValue: this.displayKenta(result, 46)
+      });
+      for (let i = 0; i < result.length; i++) {
+        this.displayTriling(result[i]);
+      }
     }
 
-    if  (this.state.displayDices3 && this.state.displayDices2 == false) {
-      this.displayKenta(result, 56);
-    } else if (this.state.displayDices2 && this.state.displayDices3 == false) {
-      this.displayKenta(result, 46);
-    }
+    this.displayMax(resultMax);
+    this.displayMin(resultMin);
 
     this.setState({
       diceNum1: dice1,
@@ -279,51 +338,53 @@ export default class ProductProvider extends Component {
       result: result
     });
   };
-
+  // sum dices with the same value
   sumDices = number => {
     switch (number) {
       case 1:
         if (this.state.sumOne < 5) {
-          return (this.state.sumOne = this.state.sumOne + 1);
+          return (this.state.sumOne += 1);
         }
       case 2:
         if (this.state.sumTwo < 10) {
-          return (this.state.sumTwo = this.state.sumTwo + 2);
+          return (this.state.sumTwo += 2);
         }
       case 3:
         if (this.state.sumThree < 15) {
-          return (this.state.sumThree = this.state.sumThree + 3);
+          return (this.state.sumThree += 3);
         }
       case 4:
         if (this.state.sumFour < 20) {
-          return (this.state.sumFour = this.state.sumFour + 4);
+          return (this.state.sumFour += 4);
         }
       case 5:
         if (this.state.sumFive < 25) {
-          return (this.state.sumFive = this.state.sumFive + 5);
+          return (this.state.sumFive += 5);
         }
       case 6:
         if (this.state.sumSix < 30) {
-          return (this.state.sumSix = this.state.sumSix + 6);
+          return (this.state.sumSix += 6);
         }
     }
   };
+  // turn back dice to the game with double click
   minusPrev = number => {
     switch (number) {
       case 1:
-        return (this.state.sumOne = this.state.sumOne - 1);
+        return (this.state.sumOne -= 1);
       case 2:
-        return (this.state.sumTwo = this.state.sumTwo - 2);
+        return (this.state.sumTwo -= 2);
       case 3:
-        return (this.state.sumThree = this.state.sumThree - 3);
+        return (this.state.sumThree -= 3);
       case 4:
-        return (this.state.sumFour = this.state.sumFour - 4);
+        return (this.state.sumFour -= 4);
       case 5:
-        return (this.state.sumFive = this.state.sumFive - 5);
+        return (this.state.sumFive -= 5);
       case 6:
-        return (this.state.sumSix = this.state.sumSix - 6);
+        return (this.state.sumSix -= 6);
     }
   };
+  // sum result in first part of table
   sumFirstColumn() {
     let sumFirstDown =
       +this.state.oneDown +
@@ -366,6 +427,7 @@ export default class ProductProvider extends Component {
         this.addBonus(sumFirstHand)
     });
   }
+  // add bonus if the sum of first column is 60 or more
   addBonus = sum => {
     if (sum >= 60) {
       sum = sum + 30;
@@ -374,15 +436,10 @@ export default class ProductProvider extends Component {
     }
     return sum;
   };
-
+  // display maximum result of 5 dices
   displayMax = result => {
-    let smallestNumber = Math.min(...result);
-
-    let newResult = result.filter(item => item !== smallestNumber);
-
-    if (newResult.length < 5) {
-      newResult = [...newResult, smallestNumber];
-    }
+    let newResult = result.sort((a, b) => a - b);
+    newResult.shift();
 
     let sumArray = newResult.reduce((a, b) => a + b);
 
@@ -390,14 +447,10 @@ export default class ProductProvider extends Component {
       maxValue: sumArray
     });
   };
+  // display minimum result of 5 dices
   displayMin = result => {
-    let biggestNumber = Math.max(...result);
-
-    let newResult = result.filter(item => item !== biggestNumber);
-
-    if (newResult.length < 5) {
-      newResult = [...newResult, biggestNumber];
-    }
+    let newResult = result.sort((a, b) => a - b);
+    newResult.pop();
 
     let sumArray = newResult.reduce((a, b) => a + b);
 
@@ -405,11 +458,13 @@ export default class ProductProvider extends Component {
       minValue: sumArray
     });
   };
+  // calculate result in second part of table (max-min) * one value
   calcSecondColumn = () => {
     let calcDown =
       (this.state.maxDown - this.state.minDown) * this.state.oneDown;
     let calcFree =
       (this.state.maxFree - this.state.minFree) * this.state.oneFree;
+    console.log(calcFree);
     let calcUp = (this.state.maxUp - this.state.minUp) * this.state.oneUp;
     let calcHand =
       (this.state.maxHand - this.state.minHand) * this.state.oneHand;
@@ -421,7 +476,7 @@ export default class ProductProvider extends Component {
       calcSecAll: calcDown + calcFree + calcUp + calcHand
     });
   };
-
+  // display kenta for two possibilities (1, 2, 3, 4, 5) and (2, 3, 4, 5, 6)
   displayKenta = (result, val) => {
     let one = result.indexOf(1, 0);
     let two = result.indexOf(2, 0);
@@ -430,56 +485,91 @@ export default class ProductProvider extends Component {
     let five = result.indexOf(5, 0);
     let six = result.indexOf(6, 0);
 
-    if (one != -1 && two != -1 && three != -1 && four != -1 && five != -1) {
-      this.setState({
-        kentaValue: val
-      })
-    } else if (two != -1 && three != -1 && four != -1 && five != -1 && six != -1) {
-      this.setState({
-        kentaValue: val
-      })
+    if (
+      (one != -1 && two != -1 && three != -1 && four != -1 && five != -1) ||
+      (two != -1 && three != -1 && four != -1 && five != -1 && six != -1)
+    ) {
+      return val;
     }
   };
+  // display trilling with three same values of dices
   displayTriling = number => {
-    switch(number) {
+    switch (number) {
       case 1:
         if (this.state.sumOne >= 3) {
           this.setState({
             trilingValue: 23
-          })
+          });
         }
       case 2:
         if (this.state.sumTwo >= 6) {
           this.setState({
             trilingValue: 26
-          })          
-     }
-     case 3:
-      if (this.state.sumThree >= 9) {
-        this.setState({
-          trilingValue: 29
-        })
-      }
-    case 4:
-      if (this.state.sumFour >= 12) {
-        this.setState({
-          trilingValue: 32
-        })          
-   }  
-   case 5:
-    if (this.state.sumFive >= 15) {
-      this.setState({
-        trilingValue: 35
-      })
+          });
+        }
+      case 3:
+        if (this.state.sumThree >= 9) {
+          this.setState({
+            trilingValue: 29
+          });
+        }
+      case 4:
+        if (this.state.sumFour >= 12) {
+          this.setState({
+            trilingValue: 32
+          });
+        }
+      case 5:
+        if (this.state.sumFive >= 15) {
+          this.setState({
+            trilingValue: 35
+          });
+        }
+      case 6:
+        if (this.state.sumSix >= 18) {
+          this.setState({
+            trilingValue: 38
+          });
+        }
     }
-  case 6:
-    if (this.state.sumSix >= 18) {
-      this.setState({
-        trilingValue: 38
-      })          
- }      
+  };
+  // display poker with four same values of dices
+  displayPoker = () => {};
+  // sum result in last part of table
+  sumLastColumn() {
+    let sumLastDown =
+      +this.state.kentaDown +
+      +this.state.trilingDown +
+      +this.state.fulDown +
+      +this.state.pokerDown +
+      +this.state.yambDown;
+    let sumLastFree =
+      +this.state.kentaFree +
+      +this.state.trilingFree +
+      +this.state.fulFree +
+      +this.state.pokerFree +
+      +this.state.yambFree;
+    let sumLastUp =
+      +this.state.kentaUp +
+      +this.state.trilingUp +
+      +this.state.fulUp +
+      +this.state.pokerUp +
+      +this.state.yambUp;
+    let sumLastHand =
+      +this.state.kentaHand +
+      +this.state.trilingHand +
+      +this.state.fulHand +
+      +this.state.pokerHand +
+      +this.state.yambHand;
+
+    this.setState({
+      sumLastDown: sumLastDown,
+      sumLastFree: sumLastFree,
+      sumLastUp: sumLastUp,
+      sumLastHand: sumLastHand,
+      sumLastAll: sumLastDown + sumLastFree + sumLastUp + sumLastHand
+    });
   }
-}
 
   dicesZero = () => {
     this.setState({
@@ -492,15 +582,20 @@ export default class ProductProvider extends Component {
       maxValue: 0,
       minValue: 0,
       kentaValue: 0,
-      trilingValue: 0
+      trilingValue: 0,
+      fulValue: 0,
+      pokerValue: 0,
+      yambValue: 0
     });
   };
   newRoll = () => {
     this.sumFirstColumn();
     this.calcSecondColumn();
+    this.sumLastColumn();
     this.setState({
       displayDices: false,
-      displayDices4: true
+      displayDices4: true,
+      disableHandColumn: false
     });
   };
   stayInGame = (num, val) => {

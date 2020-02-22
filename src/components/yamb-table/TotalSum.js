@@ -7,13 +7,15 @@ export default class TotalSum extends Component {
       <ProductConsumer>
         {value => (
           <div style={{ marginTop: "-7%", fontSize: "1.1rem" }} className="row">
+            <p style={{ visibility: "hidden" }} className="col-1"></p>
+            <p style={{ visibility: "hidden" }} className="col-1"></p>
+            <p style={{ visibility: "hidden" }} className="col-1"></p>
+            <p style={{ visibility: "hidden" }} className="col-1"></p>
             <p className="col-1">TOTAL</p>
-            <p className="col-1"></p>
-            <p className="col-1"></p>
-            <p className="col-1"></p>
-            <p className="col-1"></p>
             <p className="col-1">
-              {value.sumFirstAll > 0 ? value.sumFirstAll : null}
+              {value.sumFirstAll + value.calcSecAll + value.sumLastAll > 0
+                ? value.sumFirstAll + value.calcSecAll + value.sumLastAll
+                : null}
             </p>
           </div>
         )}

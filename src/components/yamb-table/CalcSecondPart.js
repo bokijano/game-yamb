@@ -45,7 +45,9 @@ export default class CalcSecondPart extends Component {
                 : null}
             </p>
             <p className="col-1">
-              {value.calcSecAll > 0 ? value.calcSecAll : null}
+              {value.minFree != 0 && value.calcSecAll > 0
+                ? value.calcSecAll
+                : null}
             </p>
           </div>
         )}

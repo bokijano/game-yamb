@@ -48,7 +48,7 @@ export default class RowMin extends Component {
             />
             <input
               onClick={() =>
-                value.disableInput(value.minValue, "Min", "Up", "min")
+                value.disableInput(value.minValue, "Min", "Up", "min", "Max")
               }
               className="col-inp"
               type="submit"
@@ -67,11 +67,11 @@ export default class RowMin extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpMinHand}
+              disabled={value.disableInpMinHand || value.disableHandColumn}
               value={
                 value.disableInpMinHand
                   ? value.minHand
-                  : value.minValue > 0
+                  : value.minValue > 0 && value.disableHandColumn == false
                   ? value.minValue
                   : ""
               }

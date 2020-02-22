@@ -73,11 +73,11 @@ export default class RowPoker extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpPokerHand}
+              disabled={value.disableInpPokerHand || value.disableHandColumn}
               value={
                 value.disableInpPokerHand
                   ? value.pokerHand
-                  : value.pokerValue > 0
+                  : value.pokerValue > 0 && value.disableHandColumn == false
                   ? value.pokerValue
                   : ""
               }

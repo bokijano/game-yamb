@@ -9,7 +9,9 @@ export default class RowThree extends Component {
           <div style={{ marginTop: "-7%" }} className="row">
             <p className="col-1">3</p>
             <input
-              onClick={() => value.disableInput(value.sumThree, 3, "Down", "three", 4)}
+              onClick={() =>
+                value.disableInput(value.sumThree, 3, "Down", "three", 4)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp3Down}
@@ -22,7 +24,9 @@ export default class RowThree extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumThree, 3, "Free", "three")}
+              onClick={() =>
+                value.disableInput(value.sumThree, 3, "Free", "three")
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp3Free}
@@ -35,7 +39,9 @@ export default class RowThree extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumThree, 3, "Up", "three")}
+              onClick={() =>
+                value.disableInput(value.sumThree, 3, "Up", "three", 2)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp3Up}
@@ -48,14 +54,16 @@ export default class RowThree extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumThree, 3, "Hand", "three")}
+              onClick={() =>
+                value.disableInput(value.sumThree, 3, "Hand", "three")
+              }
               className="col-inp"
               type="submit"
-              disabled={value.disableInp3Hand}
+              disabled={value.disableInp3Hand || value.disableHandColumn}
               value={
                 value.disableInp3Hand
                   ? value.threeHand
-                  : value.sumThree > 0
+                  : value.sumThree > 0 && value.disableHandColumn == false
                   ? value.sumThree
                   : ""
               }
@@ -64,6 +72,6 @@ export default class RowThree extends Component {
           </div>
         )}
       </ProductConsumer>
-  );
-}; 
-};     
+    );
+  }
+}

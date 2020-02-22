@@ -73,11 +73,11 @@ export default class RowFul extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpFulHand}
+              disabled={value.disableInpFulHand || value.disableHandColumn}
               value={
                 value.disableInpFulHand
                   ? value.fulHand
-                  : value.fulValue > 0
+                  : value.fulValue > 0 && value.disableHandColumn == false
                   ? value.fulValue
                   : ""
               }

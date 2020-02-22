@@ -9,7 +9,9 @@ export default class RowFive extends Component {
           <div style={{ marginTop: "-7%" }} className="row">
             <p className="col-1">5</p>
             <input
-              onClick={() => value.disableInput(value.sumFive, 5, "Down", "five", 6)}
+              onClick={() =>
+                value.disableInput(value.sumFive, 5, "Down", "five", 6)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp5Down}
@@ -22,7 +24,9 @@ export default class RowFive extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumFive, 5, "Free", "five")}
+              onClick={() =>
+                value.disableInput(value.sumFive, 5, "Free", "five")
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp5Free}
@@ -35,7 +39,9 @@ export default class RowFive extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumFive, 5, "Up", "five")}
+              onClick={() =>
+                value.disableInput(value.sumFive, 5, "Up", "five", 4)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp5Up}
@@ -48,14 +54,16 @@ export default class RowFive extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumFive, 5, "Hand", "five")}
+              onClick={() =>
+                value.disableInput(value.sumFive, 5, "Hand", "five")
+              }
               className="col-inp"
               type="submit"
-              disabled={value.disableInp5Hand}
+              disabled={value.disableInp5Hand || value.disableHandColumn}
               value={
                 value.disableInp5Hand
                   ? value.fiveHand
-                  : value.sumFive > 0
+                  : value.sumFive > 0 && value.disableHandColumn == false
                   ? value.sumFive
                   : ""
               }
@@ -64,6 +72,6 @@ export default class RowFive extends Component {
           </div>
         )}
       </ProductConsumer>
-  );
-}; 
-};   
+    );
+  }
+}

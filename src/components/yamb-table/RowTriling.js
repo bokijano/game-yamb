@@ -57,7 +57,8 @@ export default class RowTriling extends Component {
                   value.trilingValue,
                   "Triling",
                   "Up",
-                  "triling"
+                  "triling",
+                  "Kenta"
                 )
               }
               className="col-inp"
@@ -82,11 +83,11 @@ export default class RowTriling extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpTrilingHand}
+              disabled={value.disableInpTrilingHand || value.disableHandColumn}
               value={
                 value.disableInpTrilingHand
                   ? value.trilingHand
-                  : value.trilingValue > 0
+                  : value.trilingValue > 0 && value.disableHandColumn == false
                   ? value.trilingValue
                   : ""
               }

@@ -48,7 +48,13 @@ export default class RowMin extends Component {
             />
             <input
               onClick={() =>
-                value.disableInput(value.kentaValue, "Kenta", "Up", "kenta")
+                value.disableInput(
+                  value.kentaValue,
+                  "Kenta",
+                  "Up",
+                  "kenta",
+                  "Min"
+                )
               }
               className="col-inp"
               type="submit"
@@ -67,11 +73,11 @@ export default class RowMin extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpKentaHand}
+              disabled={value.disableInpKentaHand || value.disableHandColumn}
               value={
                 value.disableInpKentaHand
                   ? value.kentaHand
-                  : value.kentaValue > 0
+                  : value.kentaValue > 0 && value.disableHandColumn == false
                   ? value.kentaValue
                   : ""
               }

@@ -42,7 +42,7 @@ export default class RowMax extends Component {
             />
             <input
               onClick={() =>
-                value.disableInput(value.maxValue, "Max", "Up", "max")
+                value.disableInput(value.maxValue, "Max", "Up", "max", 6)
               }
               className="col-inp"
               type="submit"
@@ -61,11 +61,11 @@ export default class RowMax extends Component {
               }
               className="col-inp"
               type="submit"
-              disabled={value.disableInpMaxHand}
+              disabled={value.disableInpMaxHand || value.disableHandColumn}
               value={
                 value.disableInpMaxHand
                   ? value.maxHand
-                  : value.maxValue > 0
+                  : value.maxValue > 0 && value.disableHandColumn == false
                   ? value.maxValue
                   : ""
               }

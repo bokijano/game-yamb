@@ -9,7 +9,9 @@ export default class RowOne extends Component {
           <div style={{ marginTop: "-7%" }} className="row">
             <p className="col-1">4</p>
             <input
-              onClick={() => value.disableInput(value.sumFour, 4, "Down", "four", 5)}
+              onClick={() =>
+                value.disableInput(value.sumFour, 4, "Down", "four", 5)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp4Down}
@@ -22,7 +24,9 @@ export default class RowOne extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumFour, 4, "Free", "four")}
+              onClick={() =>
+                value.disableInput(value.sumFour, 4, "Free", "four")
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp4Free}
@@ -35,7 +39,9 @@ export default class RowOne extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumFour, 4, "Up", "four")}
+              onClick={() =>
+                value.disableInput(value.sumFour, 4, "Up", "four", 3)
+              }
               className="col-inp"
               type="submit"
               disabled={value.disableInp4Up}
@@ -48,14 +54,16 @@ export default class RowOne extends Component {
               }
             />
             <input
-              onClick={() => value.disableInput(value.sumFour, 4, "Hand", "four")}
+              onClick={() =>
+                value.disableInput(value.sumFour, 4, "Hand", "four")
+              }
               className="col-inp"
               type="submit"
-              disabled={value.disableInp4Hand}
+              disabled={value.disableInp4Hand || value.disableHandColumn}
               value={
                 value.disableInp4Hand
                   ? value.fourHand
-                  : value.sumFour > 0
+                  : value.sumFour > 0 && value.disableHandColumn == false
                   ? value.sumFour
                   : ""
               }
