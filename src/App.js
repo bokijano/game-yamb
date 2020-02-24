@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Player from "./components/player/Player.js";
 import Dices from "./components/dices/Dices";
+import GameEnd from "./components/player/gameEnd";
 
 class App extends Component {
   render() {
@@ -12,6 +13,9 @@ class App extends Component {
         </div>
         <div className="player-two">
           <Player />
+        </div>
+        <div>
+          <GameEnd />
         </div>
       </div>
     );

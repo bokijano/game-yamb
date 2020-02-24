@@ -157,12 +157,7 @@ export default class Dices extends Component {
             >
               accept and continue
             </ButtonContainer>
-            <ButtonContainer
-              onClick={value.undoMove}
-              disabled={value.displayDices5}
-            >
-              return move
-            </ButtonContainer>
+            <ButtonContainer onClick={value.newGame}>new game</ButtonContainer>
           </div>
         )}
       </ProductConsumer>
