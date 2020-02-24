@@ -21,7 +21,6 @@ export default class RowPoker extends Component {
               }
               className="col-inp"
               type="submit"
-              name="name"
               disabled={value.disableInpPokerDown}
               value={
                 value.disableInpPokerDown
