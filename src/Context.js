@@ -606,7 +606,7 @@ export default class ProductProvider extends Component {
     ];
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 5) {
-        return (i + 1) * 5 + 500;
+        return (i + 1) * 5 + 50;
       }
     }
   };
