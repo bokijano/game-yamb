@@ -547,8 +547,6 @@ export default class ProductProvider extends Component {
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 3) {
         return (i + 1) * 3 + 20;
-      } else {
-        return 0;
       }
     }
   };
@@ -575,8 +573,6 @@ export default class ProductProvider extends Component {
         for (let j = 0; j < 6; j++) {
           if (arr2[j] >= 2 * (j + 1) && i != j) {
             return 3 * (i + 1) + 2 * (j + 1) + 30;
-          } else {
-            return 0;
           }
         }
       }
@@ -595,8 +591,6 @@ export default class ProductProvider extends Component {
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 4) {
         return (i + 1) * 4 + 40;
-      } else {
-        return 0;
       }
     }
   };
@@ -613,8 +607,6 @@ export default class ProductProvider extends Component {
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 5) {
         return (i + 1) * 5 + 50;
-      } else {
-        return 0;
       }
     }
   };
