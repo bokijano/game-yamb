@@ -499,15 +499,15 @@ export default class ProductProvider extends Component {
   calcSecondColumn = () => {
     let calcDown =
       (this.state.maxDown - this.state.minDown) * this.state.oneDown;
-    this.state.minDown <= 0 ? (calcDown = 0) : null;
+    this.state.minDown == 0 || this.state.maxDown == 0 ? (calcDown = 0) : null;
     let calcFree =
       (this.state.maxFree - this.state.minFree) * this.state.oneFree;
-    this.state.minFree <= 0 ? (calcFree = 0) : null;
+    this.state.minFree == 0 || this.state.maxFree == 0 ? (calcFree = 0) : null;
     let calcUp = (this.state.maxUp - this.state.minUp) * this.state.oneUp;
-    this.state.minUp <= 0 ? (calcUp = 0) : null;
+    this.state.minUp == 0 || this.state.maxUp == 0 ? (calcUp = 0) : null;
     let calcHand =
       (this.state.maxHand - this.state.minHand) * this.state.oneHand;
-    this.state.minHand <= 0 ? (calcHand = 0) : null;
+    this.state.minHand == 0 || this.state.maxHand == 0 ? (calcHand = 0) : null;
     this.setState({
       calcSecDown: calcDown,
       calcSecFree: calcFree,
@@ -547,6 +547,8 @@ export default class ProductProvider extends Component {
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 3) {
         return (i + 1) * 3 + 20;
+      } else {
+        return 0;
       }
     }
   };
@@ -573,6 +575,8 @@ export default class ProductProvider extends Component {
         for (let j = 0; j < 6; j++) {
           if (arr2[j] >= 2 * (j + 1) && i != j) {
             return 3 * (i + 1) + 2 * (j + 1) + 30;
+          } else {
+            return 0;
           }
         }
       }
@@ -591,6 +595,8 @@ export default class ProductProvider extends Component {
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 4) {
         return (i + 1) * 4 + 40;
+      } else {
+        return 0;
       }
     }
   };
@@ -607,6 +613,8 @@ export default class ProductProvider extends Component {
     for (let i = 5; i >= 0; i--) {
       if (arr1[i] >= (i + 1) * 5) {
         return (i + 1) * 5 + 50;
+      } else {
+        return 0;
       }
     }
   };
