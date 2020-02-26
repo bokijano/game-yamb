@@ -703,6 +703,109 @@ export default class ProductProvider extends Component {
   };
   // disable input with current value
   disableInput = (val, num, pos, num2, num3) => {
+        if (this.state.trilingFree == undefined) {
+      this.setState({
+        trilingFree: 0,
+        sumLastFree: this.state.sumLastFree,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.yambFree == undefined) {
+      this.setState({
+        yambFree: 0,
+        sumLastFree: this.state.sumLastFree,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.pokerFree == undefined) {
+      this.setState({
+        pokerFree: 0,
+        sumLastFree: this.state.sumLastFree,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.fulFree == undefined) {
+      this.setState({
+        fulFree: 0,
+        sumLastFree: this.state.sumLastFree,
+        sumLastAll: this.state.sumLastAll
+      });
+    }
+
+    if (this.state.trilingDown == undefined) {
+      this.setState({
+        trilingDown: 0,
+        sumLastDown: this.state.sumLastDown,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.yambDown == undefined) {
+      this.setState({
+        yambDown: 0,
+        sumLastDown: this.state.sumLastDown,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.pokerDown == undefined) {
+      this.setState({
+        pokerDown: 0,
+        sumLastDown: this.state.sumLastDown,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.fulDown == undefined) {
+      this.setState({
+        fulDown: 0,
+        sumLastDown: this.state.sumLastDown,
+        sumLastAll: this.state.sumLastAll
+      });
+    }
+
+    if (this.state.trilingUp == undefined) {
+      this.setState({
+        trilingUp: 0,
+        sumLastUp: this.state.sumLastUp,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.yambUp == undefined) {
+      this.setState({
+        yambUp: 0,
+        sumLastUp: this.state.sumLastUp,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.pokerUp == undefined) {
+      this.setState({
+        pokerUp: 0,
+        sumLastUp: this.state.sumLastUp,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.fulUp == undefined) {
+      this.setState({
+        fulUp: 0,
+        sumLastUp: this.state.sumLastUp,
+        sumLastAll: this.state.sumLastAll
+      });
+    }
+
+    if (this.state.trilingHand == undefined) {
+      this.setState({
+        trilingHand: 0,
+        sumLastHand: this.state.sumLastHand,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.yambHand == undefined) {
+      this.setState({
+        yambHand: 0,
+        sumLastHand: this.state.sumLastHand,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.pokerHand == undefined) {
+      this.setState({
+        pokerHand: 0,
+        sumLastHand: this.state.sumLastHand,
+        sumLastAll: this.state.sumLastAll
+      });
+    } else if (this.state.fulHand == undefined) {
+      this.setState({
+        fulHand: 0,
+        sumLastHand: this.state.sumLastHand,
+        sumLastAll: this.state.sumLastAll
+      });
+    }
     this.dicesZero();
     this.setState({
       ["disableInp" + num + pos]: true,
